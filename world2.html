@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My World - Things That Can Make You Happy</title>
+    <title>My World - Group Project</title>
     <style>
+        /* Modern CSS Reset & Variable Setup */
         * {
             margin: 0;
             padding: 0;
@@ -14,30 +15,29 @@
         }
 
         :root {
-            --bg-color: #0b0f19;
-            --card-bg: rgba(23, 32, 54, 0.7);
-            --accent-primary: #ff5277;
-            --accent-secondary: #7c3aed;
-            --accent-gradient: linear-gradient(135deg, #ff5277, #7c3aed);
-            --text-main: #f8fafc;
-            --text-sub: #94a3b8;
+            --bg-color: #0d1117;
+            --card-bg: rgba(22, 27, 34, 0.8);
+            --accent-color: #ff6b6b;
+            --accent-gradient: linear-gradient(135deg, #ff6b6b, #ff8e53);
+            --text-color: #f0f6fc;
+            --text-secondary: #8b949e;
             --glass-border: rgba(255, 255, 255, 0.1);
         }
 
         body {
             background-color: var(--bg-color);
-            color: var(--text-main);
+            color: var(--text-color);
             line-height: 1.6;
             overflow-x: hidden;
         }
 
-        /* Header / Navbar */
+        /* Header & Navigation */
         header {
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(11, 15, 25, 0.85);
-            backdrop-filter: blur(12px);
+            background: rgba(13, 17, 23, 0.85);
+            backdrop-filter: blur(10px);
             z-index: 1000;
             border-bottom: 1px solid var(--glass-border);
         }
@@ -67,64 +67,52 @@
         }
 
         .nav-links a {
-            color: var(--text-main);
+            color: var(--text-color);
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s;
         }
 
         .nav-links a:hover {
-            color: var(--accent-primary);
+            color: var(--accent-color);
         }
 
-        /* Hero (Main) */
+        /* Hero Section (Main) */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 7rem 2rem 3rem;
-            background: radial-gradient(circle at 50% 30%, rgba(255, 82, 119, 0.15) 0%, rgba(124, 58, 237, 0.1) 40%, transparent 70%);
+            padding: 6rem 2rem 2rem 2rem;
+            background: radial-gradient(circle at center, rgba(255, 107, 107, 0.1) 0%, transparent 70%);
         }
 
         .hero-content {
-            max-width: 850px;
-        }
-
-        .hero-badge {
-            display: inline-block;
-            padding: 0.4rem 1.2rem;
-            background: rgba(255, 82, 119, 0.15);
-            border: 1px solid rgba(255, 82, 119, 0.3);
-            border-radius: 20px;
-            color: #ff758f;
-            font-size: 0.9rem;
-            margin-bottom: 1.5rem;
-            font-weight: 600;
+            max-width: 800px;
         }
 
         .hero h1 {
-            font-size: 3.6rem;
-            margin-bottom: 1.2rem;
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
             line-height: 1.2;
         }
 
-        .hero h1 span {
+        .hero span {
             background: var(--accent-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .hero p {
-            font-size: 1.25rem;
-            color: var(--text-sub);
-            margin-bottom: 2.2rem;
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
         }
 
         .btn {
             display: inline-block;
-            padding: 0.9rem 2.2rem;
+            padding: 0.8rem 2rem;
             background: var(--accent-gradient);
             color: white;
             border: none;
@@ -132,16 +120,15 @@
             font-weight: 600;
             text-decoration: none;
             cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 20px rgba(255, 82, 119, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
         .btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(255, 82, 119, 0.5);
+            box-shadow: 0 10px 20px rgba(255, 107, 107, 0.3);
         }
 
-        /* Section Global */
+        /* Meals Section */
         .section {
             padding: 5rem 2rem;
             max-width: 1200px;
@@ -158,129 +145,114 @@
         .section-title::after {
             content: '';
             display: block;
-            width: 70px;
+            width: 60px;
             height: 4px;
             background: var(--accent-gradient);
-            margin: 12px auto 0;
+            margin: 10px auto 0;
             border-radius: 2px;
         }
 
-        /* Happy Things Grid */
-        .happy-grid {
+        .meals-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
 
-        .happy-card {
+        .meal-card {
             background: var(--card-bg);
             border: 1px solid var(--glass-border);
-            border-radius: 20px;
+            border-radius: 15px;
             overflow: hidden;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
+            transition: transform 0.3s, border-color 0.3s;
         }
 
-        .happy-card:hover {
-            transform: translateY(-8px);
-            border-color: var(--accent-primary);
-            box-shadow: 0 10px 30px rgba(124, 58, 237, 0.2);
+        .meal-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-color);
         }
 
-        .happy-img {
+        .meal-img {
             width: 100%;
-            height: 220px;
+            height: 200px;
             object-fit: cover;
         }
 
-        .happy-info {
-            padding: 1.8rem;
+        .meal-info {
+            padding: 1.5rem;
         }
 
-        .happy-info h3 {
+        .meal-info h3 {
             font-size: 1.4rem;
-            margin-bottom: 0.6rem;
-            color: #fff;
+            margin-bottom: 0.5rem;
         }
 
-        .happy-info p {
-            color: var(--text-sub);
+        .meal-info p {
+            color: var(--text-secondary);
             font-size: 0.95rem;
-            line-height: 1.6;
         }
 
-        /* About Us (5 Team Members) */
+        /* About Us Section (5 Team Members) */
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-            gap: 1.8rem;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
         }
 
         .team-card {
             background: var(--card-bg);
             border: 1px solid var(--glass-border);
-            border-radius: 20px;
-            padding: 2.2rem 1.2rem;
+            border-radius: 15px;
+            padding: 2rem 1.5rem;
             text-align: center;
-            transition: all 0.3s ease;
+            transition: transform 0.3s;
         }
 
         .team-card:hover {
-            transform: translateY(-6px);
-            border-color: var(--accent-secondary);
+            transform: translateY(-5px);
         }
 
         .avatar {
-            width: 85px;
-            height: 85px;
+            width: 90px;
+            height: 90px;
             border-radius: 50%;
+            background: var(--accent-gradient);
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto 1.2rem;
-            font-size: 1.8rem;
-            font-weight: 700;
+            font-size: 2rem;
+            font-weight: bold;
             color: white;
-            box-shadow: 0 5px 15px rgba(255, 82, 119, 0.3);
-        }
-
-        .avatar.female {
-            background: linear-gradient(135deg, #ff758f, #ffb703);
-        }
-
-        .avatar.male {
-            background: linear-gradient(135deg, #4cc9f0, #4361ee);
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.2);
         }
 
         .team-card h3 {
-            font-size: 1.15rem;
+            font-size: 1.2rem;
             margin-bottom: 0.3rem;
-            color: #fff;
         }
 
         .team-card .role {
-            color: var(--accent-primary);
-            font-size: 0.85rem;
+            color: var(--accent-color);
+            font-size: 0.9rem;
             font-weight: 600;
             margin-bottom: 0.8rem;
         }
 
         .team-card p {
-            color: var(--text-sub);
+            color: var(--text-secondary);
             font-size: 0.85rem;
         }
 
         /* Footer */
         footer {
             text-align: center;
-            padding: 2.2rem;
-            background: rgba(11, 15, 25, 0.95);
+            padding: 2rem;
+            background: rgba(13, 17, 23, 0.95);
             border-top: 1px solid var(--glass-border);
-            color: var(--text-sub);
-            font-size: 0.95rem;
+            color: var(--text-secondary);
         }
 
-        /* Responsive */
+        /* Responsive Design */
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.5rem; }
             .nav-links { gap: 1rem; }
@@ -295,7 +267,7 @@
             <div class="logo">My World</div>
             <ul class="nav-links">
                 <li><a href="#main">Main</a></li>
-                <li><a href="#happy">Things That Make Us Happy</a></li>
+                <li><a href="#meals">My Favorite Meal</a></li>
                 <li><a href="#about">About Us</a></li>
             </ul>
         </nav>
@@ -304,107 +276,82 @@
     <!-- Main / Hero Section -->
     <section id="main" class="hero">
         <div class="hero-content">
-            <span class="hero-badge">✨ Team Project</span>
-            <h1>Things That Can Make You <span>Happy</span></h1>
-            <p>Discover the most beautiful moments, emotions, and simple pleasures that make life brighter, more meaningful, and full of joy.</p>
-            <a href="#happy" class="btn">Explore Happiness</a>
+            <h1>Welcome to <span>My World</span> Portal</h1>
+            <p>This is a website created by our 5-member team. Here you can discover our world and learn more about our favorite meals!</p>
+            <a href="#meals" class="btn">View Favorite Meals</a>
         </div>
     </section>
 
-    <!-- Happy Things Section -->
-    <section id="happy" class="section">
-        <h2 class="section-title">Things That Make Us Happy</h2>
-        <div class="happy-grid">
+    <!-- My Favorite Meal Section -->
+    <section id="meals" class="section">
+        <h2 class="section-title">My Favorite Meal</h2>
+        <div class="meals-grid">
             
-            <div class="happy-card">
-                <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=600&auto=format&fit=crop&q=60" alt="Music" class="happy-img">
-                <div class="happy-info">
-                    <h3>🎵 Music & Art</h3>
-                    <p>Beautiful melodies and favorite songs lift your mood, bring inner peace, and trigger pure joy.</p>
+            <div class="meal-card">
+                <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=600&auto=format&fit=crop&q=60" alt="Plov" class="meal-img">
+                <div class="meal-info">
+                    <h3>Traditional Plov</h3>
+                    <p>The crown jewel of traditional cuisine. A delicious harmony of rice, tender meat, sweet carrots, and aromatic spices.</p>
                 </div>
             </div>
 
-            <div class="happy-card">
-                <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=600&auto=format&fit=crop&q=60" alt="Travel" class="happy-img">
-                <div class="happy-info">
-                    <h3>🌍 Travel & Nature</h3>
-                    <p>Exploring new places, walking in fresh air, and enjoying breathtaking views of nature.</p>
+            <div class="meal-card">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=600&auto=format&fit=crop&q=60" alt="Pizza" class="meal-img">
+                <div class="meal-info">
+                    <h3>Pepperoni Pizza</h3>
+                    <p>A world-famous Italian dish topped with rich melted cheese and spicy pepperoni slices.</p>
                 </div>
             </div>
 
-            <div class="happy-card">
-                <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&auto=format&fit=crop&q=60" alt="Friends" class="happy-img">
-                <div class="happy-info">
-                    <h3>🤝 Friends & Family</h3>
-                    <p>Having warm conversations with loved ones and creating unforgettable lifelong memories together.</p>
-                </div>
-            </div>
-
-            <div class="happy-card">
-                <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&auto=format&fit=crop&q=60" alt="Food" class="happy-img">
-                <div class="happy-info">
-                    <h3>🍕 Delicious Food</h3>
-                    <p>Savoring your favorite meals and desserts boosts dopamine and brings instant delight.</p>
-                </div>
-            </div>
-
-            <div class="happy-card">
-                <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=600&auto=format&fit=crop&q=60" alt="Books" class="happy-img">
-                <div class="happy-info">
-                    <h3>📚 Reading Books</h3>
-                    <p>Diving into imaginary worlds, gaining new knowledge, and finding daily inspiration through stories.</p>
-                </div>
-            </div>
-
-            <div class="happy-card">
-                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&auto=format&fit=crop&q=60" alt="Success" class="happy-img">
-                <div class="happy-info">
-                    <h3>🎯 Personal Success</h3>
-                    <p>Achieving your goals, learning new skills, and celebrating even the smallest victories.</p>
+            <div class="meal-card">
+                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600&auto=format&fit=crop&q=60" alt="Burger" class="meal-img">
+                <div class="meal-info">
+                    <h3>Juicy Burger</h3>
+                    <p>A savory fast-food favorite made with a soft bun, juicy patty, fresh vegetables, and special sauce.</p>
                 </div>
             </div>
 
         </div>
     </section>
 
-    <!-- About Us Section (5 Team Members) -->
+    <!-- About Us Section (5 Members) -->
     <section id="about" class="section">
         <h2 class="section-title">About Us</h2>
         <div class="team-grid">
             
             <div class="team-card">
-                <div class="avatar female">JD</div>
-                <h3>Janabaeva Dilnura</h3>
+                <div class="avatar">SM</div>
+                <h3>Saatbaev Maxsud</h3>
                 <div class="role">Team Leader</div>
-                <p>Project visionary and leader motivating the team to achieve creative ideas.</p>
+                <p>Project manager responsible for coordinating team tasks and overall progress.</p>
             </div>
 
             <div class="team-card">
-                <div class="avatar female">IU</div>
-                <h3>Ibaydullaeva Umida</h3>
-                <div class="role">UI/UX Designer</div>
-                <p>Specialist in aesthetic colors, user experience, and visual styling.</p>
-            </div>
-
-            <div class="team-card">
-                <div class="avatar female">DD</div>
-                <h3>Dawmenova Dilnaz</h3>
-                <div class="role">Content Creator</div>
-                <p>Author of inspiring text content and creative storytelling.</p>
-            </div>
-
-            <div class="team-card">
-                <div class="avatar female">PA</div>
-                <h3>Pirlepesova Aysara</h3>
+                <div class="avatar">TA</div>
+                <h3>Tenelbaev Azamat</h3>
                 <div class="role">Frontend Developer</div>
-                <p>Architect of modern website structure and responsive layouts.</p>
+                <p>Developer responsible for building the website structure and layout design.</p>
             </div>
 
             <div class="team-card">
-                <div class="avatar male">BG</div>
-                <h3>Baxitov Gayrat</h3>
-                <div class="role">QA & Technical Specialist</div>
-                <p>Responsible for technical performance, speed, and device compatibility.</p>
+                <div class="avatar">JB</div>
+                <h3>Juginisov Bahadir</h3>
+                <div class="role">Web Designer</div>
+                <p>Creative designer in charge of color schemes and visual concepts.</p>
+            </div>
+
+            <div class="team-card">
+                <div class="avatar">MA</div>
+                <h3>Minbaev Allayar</h3>
+                <div class="role">Content Manager</div>
+                <p>Specialist responsible for preparing and editing all website texts and data.</p>
+            </div>
+
+            <div class="team-card">
+                <div class="avatar">AA</div>
+                <h3>Artiqbaev Allayar</h3>
+                <div class="role">QA & Testing</div>
+                <p>Quality assurance specialist testing website performance and responsiveness.</p>
             </div>
 
         </div>
@@ -412,7 +359,7 @@
 
     <!-- Footer Section -->
     <footer>
-        <p>&copy; 2026 My World | "Things That Can Make You Happy" Team Project. All rights reserved.</p>
+        <p>&copy; 2026 My World | Team Project. All rights reserved.</p>
     </footer>
 
 </body>
